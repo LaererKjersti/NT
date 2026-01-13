@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dybdeguide: Evangeliene i NT</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22; /* Ny farge for denne versjonen */
+            --bg: #fdfdfd;
+            --dark-blue: #34495e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background-color: #f0f2f5;
+            color: var(--primary);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 { text-align: center; color: var(--dark-blue); font-size: 2.5em; margin-bottom: 30px; }
+        h2 { color: var(--accent); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+        h3 { color: var(--dark-blue); margin-top: 25px; }
+
+        .tabs { display: flex; gap: 5px; margin-bottom: 30px; border-bottom: 2px solid #eee; }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: bold;
+            font-size: 1em;
+            color: #7f8c8d;
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .content-section { display: none; animation: fadeIn 0.4s ease; }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Tabell-styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: var(--dark-blue);
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .symbol-box {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #eee;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: #fff3e0;
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .footer { text-align: center; margin-top: 40px; font-size: 0.8em; color: #95a5a6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Evangeliene i Det nye testamentet</h1>
+    
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('detaljer')">Om Evangeliene</button>
+        <button class="tab-btn" onclick="openTab('sammenligning')">Sammenligning</button>
+        <button class="tab-btn" onclick="openTab('forskning')">Hvorfor 4 utgaver?</button>
+    </div>
+
+    <div id="detaljer" class="content-section active">
+        <h2>De fire portrettene av Jesus</h2>
+        
+        <h3>1. Markusevangeliet <span class="symbol-box">Symbol: Løve</span></h3>
+        <p>Markus er det eldste evangeliet (skrevet ca. år 70). Det er kort og konsist. Markus legger vekt på at Jesus er en <strong>handlingsmann</strong>. Han bruker ofte ordet "straks" for å drive fortellingen fremover.</p>
+        <ul>
+            <li><strong>Innhold:</strong> Fokus på Jesu lidelse, død og oppstandelse. Nesten en tredjedel av boka handler om den siste uka i Jesu liv.</li>
+            <li><strong>Særtrekk:</strong> "Den messianske hemmeligheten" – Jesus hysjer på de han helbreder fordi han ikke vil bli misforstått som en politisk opprører.</li>
+        </ul>
+
+        <h3>2. Matteusevangeliet <span class="symbol-box">Symbol: Menneske</span></h3>
+        <p>Matteus skriver for jøder som har blitt kristne. Han vil bevise at Jesus er den <strong>Messias</strong> som det ble lovet i Det gamle testamentet (GT).</p>
+        <ul>
+            <li><strong>Innhold:</strong> Inneholder fem store taler, der <em>Bergprekenen</em> er den mest kjente. Her finner vi Fadervår og de etiske reglene for kristne.</li>
+            <li><strong>Særtrekk:</strong> Han siterer GT hele tiden ("Dette skjedde for at ordet skulle oppfylles..."). Han fremstiller Jesus som den "nye Moses".</li>
+        </ul>
+
+        <h3>3. Lukasevangeliet <span class="symbol-box">Symbol: Okse</span></h3>
+        <p>Lukas var lege og svært språkmektig. Han skriver for folk som ikke er jøder, og legger vekt på at Jesus er <strong>frelseren for hele verden</strong>.</p>
+        <ul>
+            <li><strong>Innhold:</strong> Her finner vi de mest kjente fortellingene: Juleevangeliet, lignelsen om den barmhjertige samaritan og den tapte sønn.</li>
+            <li><strong>Særtrekk:</strong> Lukas er "de fattiges evangelist". Han løfter frem kvinner, barn, syke og utstøtte som heltene i Jesu fortellinger.</li>
+        </ul>
+
+        <h3>4. Johannesevangeliet <span class="symbol-box">Symbol: Ørn</span></h3>
+        <p>Dette evangeliet er helt annerledes enn de tre andre. Det er filosofisk, poetisk og går dypt inn i hvem Jesus er i forhold til Gud.</p>
+        <ul>
+            <li><strong>Innhold:</strong> Ingen tradisjonelle lignelser, men lange taler og "Jeg er"-ordene (f.eks. "Jeg er livets brød").</li>
+            <li><strong>Særtrekk:</strong> Jesus fremstilles som det guddommelige "Ordet" som var til før verden ble skapt. Han gjør "tegn" (mirakler) for å vise sin guddommelighet.</li>
+        </ul>
+    </div>
+
+    <div id="sammenligning" class="content-section">
+        <h2>Sammenligning av evangeliene</h2>
+        <p>Her kan du se hvordan forfatterne har ulike vinkler på den samme historien:</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Tema</th>
+                    <th>Synoptikerne (Matt, Mark, Luk)</th>
+                    <th>Johannesevangeliet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Jesu identitet</strong></td>
+                    <td>Jesus som Messias og menneskesønn.</td>
+                    <td>Jesus som Guds sønn og det evige ordet.</td>
+                </tr>
+                <tr>
+                    <td><strong>Måte å snakke på</strong></td>
+                    <td>Korte lignelser og konkrete eksempler fra hverdagen.</td>
+                    <td>Lange, dype taler med mye symbolikk (lys, mørke, vann).</td>
+                </tr>
+                <tr>
+                    <td><strong>Hovedtema</strong></td>
+                    <td>Guds rike (et nytt fellesskap på jorda).</td>
+                    <td>Evig liv gjennom troen på Jesus.</td>
+                </tr>
+                <tr>
+                    <td><strong>Mirakler</strong></td>
+                    <td>Helbredelser for å vise barmhjertighet.</td>
+                    <td>"Tegn" som peker mot at Jesus er Gud.</td>
+                </tr>
+                <tr>
+                    <td><strong>Geografi</strong></td>
+                    <td>Mesteparten skjer i Galilea (nord i landet).</td>
+                    <td>Mesteparten skjer i og rundt Jerusalem.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Hva betyr "Synoptisk"?</strong> Ordet kommer fra gresk og betyr "å se sammen". Matteus, Markus og Lukas er så like at man kan stille dem opp i spalter ved siden av hverandre og lese dem sammen. Johannes går sin helt egen vei.
+        </div>
+    </div>
+
+    <div id="forskning" class="content-section">
+        <h2>Hvorfor trenger vi fire utgaver?</h2>
+        <p>I kirken har man beholdt alle fire fordi de utfyller hverandre. Hvis vi bare hadde hatt ett, ville vi mistet viktige nyanser:</p>
+        <ul>
+            <li>Uten <strong>Markus</strong> ville vi mistet den eldste og mest direkte historien.</li>
+            <li>Uten <strong>Matteus</strong> ville vi ikke forstått røttene i jødisk tradisjon.</li>
+            <li>Uten <strong>Lukas</strong> ville vi mistet de mest hjertevarme historiene om de svake i samfunnet.</li>
+            <li>Uten <strong>Johannes</strong> ville vi mistet de dype tankene om Jesu guddommelighet.</li>
+        </ul>
+        <p>I undervisningen på 9. trinn er det viktigste å huske at forfatterne ikke var nyhetsreportere som filmet alt med mobilen, men "forkynnere" som ville fortelle hva Jesus betød for dem og deres gruppe.</p>
+    </div>
+
+    <div class="footer">
+        Utviklet for KRLE 9. trinn - Læreplan LK20
+    </div>
+</div>
+
+<script>
+    function openTab(tabId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => section.classList.remove('active'));
+        
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
